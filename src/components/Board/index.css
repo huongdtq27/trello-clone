@@ -1,0 +1,7 @@
+.list-column{
+    display: flex;
+    display: flex;
+    background: lightgray;
+    width:fit-content;
+    justify-content: space-around;
+}

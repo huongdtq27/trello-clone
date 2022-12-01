@@ -10,7 +10,6 @@ import {
 import { reOrderList } from "../helper";
 import {
   allTasks,
-  board,
   columnOrder,
   columns,
   dragColumns,
@@ -26,8 +25,6 @@ const Board = () => {
   const listColumnData = useSelector(columns);
   const listColumnOrder = useSelector(columnOrder);
   const listAllTasks = useSelector(allTasks);
-  const boardData = useSelector(board);
-  console.log("boardData", boardData);
 
   const dispatch = useDispatch();
 
@@ -36,7 +33,7 @@ const Board = () => {
     dispatch(setAllColumns(mockColumns));
     dispatch(setColumnOrder(mockColumnOrder));
     dispatch(setAllTasks(mockListAllTask));
-  }, [dispatch]);
+  }, []);
 
   const dragColumn = (startIndex, endIndex) => {
     const newOrderColumns = reOrderList(listColumnOrder, startIndex, endIndex);
@@ -99,7 +96,6 @@ const Board = () => {
 
   const onDragEnd = (result) => {
     const { destination, source, type } = result;
-    console.log("result", result);
     if (
       !destination ||
       (destination.droppableId === source.droppableId &&

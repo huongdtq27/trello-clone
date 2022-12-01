@@ -6,11 +6,7 @@ const Column = (props) => {
   return (
     <div className="board-column">
       <div className="board-column-title">{props.column.title}</div>
-      <Droppable
-        droppableId={`drag-column-${props.column.id}`}
-        type="task"
-        // isDropDisabled={true}
-      >
+      <Droppable droppableId={`drag-column-${props.column.id}`} type="task">
         {(provided, snapshot) => (
           <div
             className="task-item-list"
@@ -22,7 +18,6 @@ const Column = (props) => {
                 key={`task-${taskItem.id}`}
                 draggableId={`task-${taskItem.id}`}
                 index={index}
-                // isDragDisabled={true}
               >
                 {(provided) => (
                   <div
